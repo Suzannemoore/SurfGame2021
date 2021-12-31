@@ -74,23 +74,23 @@ To allow the player to fall we will add the tag Water to the Sprite that was cre
     
 To allow the user to have a reload of the scene, we will inport UnityEngine.SceneManagement to have access to the method SceneManger to restart the scene. We would also create a new scene and remove the samplescene. 
 
-using UnityEngine;
-using UnityEngine.SceneManagement;
+    using UnityEngine;
+    using UnityEngine.SceneManagement;
 
-public class WinnerLine : MonoBehaviour
-{
-    void OnTriggerEnter2D(Collider2D collision)
+    public class WinnerLine : MonoBehaviour
     {
-        // make use only the surfer can trigger the finish line by adding the player tag
-        if(collision.tag == "Player")
+        void OnTriggerEnter2D(Collider2D collision)
         {
-            // using LoadScene method which will load the scene by its name or index in build settings. 
-            // This will allow a reload of the scence.
-            SceneManager.LoadScene(0);
-        }
+            // make use only the surfer can trigger the finish line by adding the player tag
+            if(collision.tag == "Player")
+            {
+                // using LoadScene method which will load the scene by its name or index in build settings. 
+                // This will allow a reload of the scence.
+                SceneManager.LoadScene(0);
+            }
 
+        }
     }
-}
 
 We will be using an Invoke() for example 
   - public void Invoke(string methodName, float time);
